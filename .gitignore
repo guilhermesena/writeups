@@ -1,6 +1,6 @@
-*.log
-*.bbl
-*.aux
-*.gz
-*.out
-
+*
+!.gitignore
+*.pdf
+*.tex
+*.bib
+*.sty
