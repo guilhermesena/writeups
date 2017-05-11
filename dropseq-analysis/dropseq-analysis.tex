@@ -265,9 +265,12 @@ At this point every individual cluster has a set of genes that are upregulated w
 \\
 This is the foundation of the theory of network construction proposed by Horvath \cite{}. The WGCNA method builds yet another graph, but this time between genes. Each pair of genes $i$ and $j$ is joined by an edge given by their correlation coefficient:
 $$
-\rho_{ij} = \frac{\sum_{k} (g_{ki} - \bar{g_{k\cdot}})(g_{kj} - \bar{g_{k\cdot}})}{\sqrt{(g_{ki} - \bar{g_{k\cdot}})^2}\sqrt{(g_{kj} - \bar{g_{k\cdot}})^2}}
+\rho_{ij} = \frac{\sum_{k} (g_{ki} - \bar{g_{k\cdot}})(g_{kj} - \bar{g_{k\cdot}})}	{\sqrt{(g_{ki} - \bar{g_{k\cdot}})^2}\sqrt{(g_{kj} - \bar{g_{k\cdot}})^2}}
 $$
 
+In reality, we do not use $\rho_{ij}$ for this network construction, but rather some power of the correlation. That is, the actual edge value will be given by $s_{ij} = \rho_{ij}^{\alpha}$. Finally, given that many of the edges will have a value very close to zero - that is, genes with no biological correlation whatsoever - we cut off edges by setting a minimum correlation threshold $\tau$ and set the final value of the edges as $a_{ij} = s_{ij} \times \delta_{|s_{ij}| > \tau}$. That is, we only keep edges such that $|s_{ij}| > \tau$. \\
+\\
+How do we choose $\alpha$ and $\tau$? This is outside of the scope of the analysis overview, but in short we want $\alpha$ to have the property that any edge $s_{ij}$ can be written as a factor $s_{ij} = s_i \times s_j$. As for $\tau$, we choose it based on a criteria called \emph{scale free topology}, that is, the number of genes $p(k)$ whose sum of edges is $k$ must be given by a power law: $p(k) \sim k^{-\gamma}$, so fitting a linear model and maximizing the $R^2$ statistic based on $\tau$ gives us the optimal solution. 
 
 \subsection{Ontology Enrichment Analysis*}
 
