@@ -1,0 +1,77 @@
+\begin{thebibliography}{10}
+
+\bibitem{alexa2010topgo}
+Adrian Alexa and Jorg Rahnenfuhrer.
+\newblock topgo: enrichment analysis for gene ontology.
+\newblock {\em R package version}, 2(0), 2010.
+
+\bibitem{andrews2010fastqc}
+Simon Andrews et~al.
+\newblock Fastqc: a quality control tool for high throughput sequence data,
+  2010.
+
+\bibitem{chung2015statistical}
+Neo~Christopher Chung and John~D Storey.
+\newblock Statistical significance of variables driving systematic variation in
+  high-dimensional data.
+\newblock {\em Bioinformatics}, 31(4):545--554, 2015.
+
+\bibitem{dobin2013star}
+Alexander Dobin, Carrie~A Davis, Felix Schlesinger, Jorg Drenkow, Chris
+  Zaleski, Sonali Jha, Philippe Batut, Mark Chaisson, and Thomas~R Gingeras.
+\newblock Star: ultrafast universal rna-seq aligner.
+\newblock {\em Bioinformatics}, 29(1):15--21, 2013.
+
+\bibitem{ester1996density}
+Martin Ester, Hans-Peter Kriegel, J{\"o}rg Sander, Xiaowei Xu, et~al.
+\newblock A density-based algorithm for discovering clusters in large spatial
+  databases with noise.
+\newblock In {\em Kdd}, volume~96, pages 226--231, 1996.
+
+\bibitem{good1953population}
+Irving~J Good.
+\newblock The population frequencies of species and the estimation of
+  population parameters.
+\newblock {\em Biometrika}, pages 237--264, 1953.
+
+\bibitem{krueger2015trim}
+F~Krueger.
+\newblock Trim galore!: A wrapper tool around cutadapt and fastqc to
+  consistently apply quality and adapter trimming to fastq files, 2015.
+
+\bibitem{maaten2008visualizing}
+Laurens van~der Maaten and Geoffrey Hinton.
+\newblock Visualizing data using t-sne.
+\newblock {\em Journal of Machine Learning Research}, 9(Nov):2579--2605, 2008.
+
+\bibitem{macosko2015highly}
+Evan~Z Macosko, Anindita Basu, Rahul Satija, James Nemesh, Karthik Shekhar,
+  Melissa Goldman, Itay Tirosh, Allison~R Bialas, Nolan Kamitaki, Emily~M
+  Martersteck, et~al.
+\newblock Highly parallel genome-wide expression profiling of individual cells
+  using nanoliter droplets.
+\newblock {\em Cell}, 161(5):1202--1214, 2015.
+
+\bibitem{mcdavid2013data}
+Andrew McDavid, Greg Finak, Pratip~K Chattopadyay, Maria Dominguez, Laurie
+  Lamoreaux, Steven~S Ma, Mario Roederer, and Raphael Gottardo.
+\newblock Data exploration, quality control and testing in single-cell
+  qpcr-based gene expression experiments.
+\newblock {\em Bioinformatics}, 29(4):461--467, 2013.
+
+\bibitem{shekhar2016comprehensive}
+Karthik Shekhar, Sylvain~W Lapan, Irene~E Whitney, Nicholas~M Tran, Evan~Z
+  Macosko, Monika Kowalczyk, Xian Adiconis, Joshua~Z Levin, James Nemesh,
+  Melissa Goldman, et~al.
+\newblock Comprehensive classification of retinal bipolar neurons by
+  single-cell transcriptomics.
+\newblock {\em Cell}, 166(5):1308--1323, 2016.
+
+\bibitem{zheng2016massively}
+Grace~XY Zheng, Jessica~M Terry, Phillip Belgrader, Paul Ryvkin, Zachary~W
+  Bent, Ryan Wilson, Solongo~B Ziraldo, Tobias~D Wheeler, Geoff~P McDermott,
+  Junjie Zhu, et~al.
+\newblock Massively parallel digital transcriptional profiling of single cells.
+\newblock {\em bioRxiv}, page 065912, 2016.
+
+\end{thebibliography}

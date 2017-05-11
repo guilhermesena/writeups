@@ -1,0 +1,69 @@
+\documentclass[11pt]{article}
+\usepackage{amssymb}
+
+\usepackage{fullpage,times,hyperref,hypcap,namedplus}
+\usepackage{cite,enumitem,graphicx,amsmath}
+
+\hypersetup{colorlinks=true,allcolors=black}
+
+\title{\bf Identifying Phenotypically Similar Clusters Between Single Cell RNA-Seq Samples}
+\author{\bf Guilherme de Sena Brandine}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\section{Introduction}
+With the increasingly large throughput of single cell RNA-Seq technologies, it is possible to understand the transcriptomes heterogeneous populations of cells in tissues in single-cell resolution. These transcriptomes can be used to identify the phenotype of each sampled cell through diverse methods, such as the expression of specific known marker genes or unsupervised clustering methods based on expression similarity. \\
+\\
+A question that arises with these technologies is how biological systems differ between two samples, for instance: The differences between the phenotypes of a healthy and a diseased tissues or the differences in a tissue on distinct timepoints of development. We would like to identify which phenotypes are present in  both samples and which are specific to a single one. This could be useful not only to better understand the changing compositions of cell types but also to interrogate the difference between the gene expression of cells of the same phenotype when in different environments. \\
+\\
+We consider two groups of cells in two different samples to be phenotypically equivalent if their expression profiles are similar enough that we can 
+
+\section{Clustering Methods Used in Single Cell Analysis}
+\subsection{Louvain Modularity}
+\subsection{DBSCAN}
+\subsection{Gaussian Mixture Models}
+\subsection{Spectral Clustering}
+\subsection{K-Means}
+\subsection{Hierarchical Clustering}
+
+
+\section{Cluster Comparison Methods}
+
+\subsection{CCLUMP}
+% Jakobsson and Rosenberg
+
+\subsection{CODENSE}
+% Zhou
+
+\section{Data}
+\begin{tabular}{ | c | c | c | c | c | p{6cm} | }
+\hline
+\textbf{Paper} & \textbf{Organism} & \textbf{Clustering} & \textbf{\# Clusters}& \textbf{\# Cells }& \textbf{\# Cells} \textbf{Details}\\
+\hline
+Yan & hg19 & Biological & 7 & 129 & Oocyte, Zygote, 2-cell, 4-cell, 8-cell, Morula, Blastocyst\\
+\hline
+Biase & mm10 & Biological & 3 & 9+10+5 = 24& hESC, 2-cell, 4-cell\\
+\hline
+Goolam & mm10 & Biological & 5 & 40 & 2-cell, 4-cell, 8-cell, Morula, Blastocyst\\
+\hline
+Deng & mm10 & Biological & 10 &  & Oocyte, Zygote, 2-Cell(E,M,L), 4-cell, 8-cell,16-cell, Blastocyst(E,M,L)\\
+\hline
+Pollen & hg19 & Biological & 11 &  301 & Oocyte, Zygote, 2-cell, 4-cell, 8-cell, Morula, Blastocyst\\
+\hline
+Kolodziejczyk & hg19 & & 7 &  & Oocyte, Zygote, 2-cell, 4-cell, 8-cell, Morula, Blastocyst\\
+\hline
+Klein & mm10 & & &  & \\
+\hline
+Macosko & hg19 & &  &  & \\
+\hline
+Shekhar & hg19 & &  &  & \\
+\hline
+Zeisel & mm10 & &  &  & \\
+\hline
+
+\end{tabular}
+
+\end{document}

@@ -1,0 +1,279 @@
+\RequirePackage{filecontents}
+\begin{filecontents}{mybibtest.bib}
+@article{macosko2015highly,
+  title={Highly parallel genome-wide expression profiling of individual cells using nanoliter droplets},
+  author={Macosko, Evan Z and Basu, Anindita and Satija, Rahul and Nemesh, James and Shekhar, Karthik and Goldman, Melissa and Tirosh, Itay and Bialas, Allison R and Kamitaki, Nolan and Martersteck, Emily M and others},
+  journal={Cell},
+  volume={161},
+  number={5},
+  pages={1202--1214},
+  year={2015},
+  publisher={Elsevier}
+}
+
+@article{klein2015droplet,
+  title={Droplet barcoding for single-cell transcriptomics applied to embryonic stem cells},
+  author={Klein, Allon M and Mazutis, Linas and Akartuna, Ilke and Tallapragada, Naren and Veres, Adrian and Li, Victor and Peshkin, Leonid and Weitz, David A and Kirschner, Marc W},
+  journal={Cell},
+  volume={161},
+  number={5},
+  pages={1187--1201},
+  year={2015},
+  publisher={Elsevier}
+}
+
+@misc{andrews2010fastqc,
+  title={FastQC: a quality control tool for high throughput sequence data},
+  author={Andrews, Simon and others},
+  year={2010}
+}
+
+@misc{krueger2015trim,
+  title={Trim Galore!: A wrapper tool around Cutadapt and FastQC to consistently apply quality and adapter trimming to FastQ files},
+  author={Krueger, F},
+  year={2015}
+}
+
+@article{zheng2016massively,
+  title={Massively parallel digital transcriptional profiling of single cells},
+  author={Zheng, Grace XY and Terry, Jessica M and Belgrader, Phillip and Ryvkin, Paul and Bent, Zachary W and Wilson, Ryan and Ziraldo, Solongo B and Wheeler, Tobias D and McDermott, Geoff P and Zhu, Junjie and others},
+  journal={bioRxiv},
+  pages={065912},
+  year={2016},
+  publisher={Cold Spring Harbor Labs Journals}
+}
+
+@article{satija2015spatial,
+  title={Spatial reconstruction of single-cell gene expression data},
+  author={Satija, Rahul and Farrell, Jeffrey A and Gennert, David and Schier, Alexander F and Regev, Aviv},
+  journal={Nature biotechnology},
+  volume={33},
+  number={5},
+  pages={495--502},
+  year={2015},
+  publisher={Nature Research}
+}
+
+@article{good1953population,
+  title={The population frequencies of species and the estimation of population parameters},
+  author={Good, Irving J},
+  journal={Biometrika},
+  pages={237--264},
+  year={1953},
+  publisher={JSTOR}
+}
+
+@article{maaten2008visualizing,
+  title={Visualizing data using t-SNE},
+  author={Maaten, Laurens van der and Hinton, Geoffrey},
+  journal={Journal of Machine Learning Research},
+  volume={9},
+  number={Nov},
+  pages={2579--2605},
+  year={2008}
+}
+
+@article{mcdavid2013data,
+  title={Data exploration, quality control and testing in single-cell qPCR-based gene expression experiments},
+  author={McDavid, Andrew and Finak, Greg and Chattopadyay, Pratip K and Dominguez, Maria and Lamoreaux, Laurie and Ma, Steven S and Roederer, Mario and Gottardo, Raphael},
+  journal={Bioinformatics},
+  volume={29},
+  number={4},
+  pages={461--467},
+  year={2013},
+  publisher={Oxford Univ Press}
+}
+
+@article{alexa2010topgo,
+  title={topGO: enrichment analysis for gene ontology},
+  author={Alexa, Adrian and Rahnenfuhrer, Jorg},
+  journal={R package version},
+  volume={2},
+  number={0},
+  year={2010}
+}	
+
+@article{chung2015statistical,
+  title={Statistical significance of variables driving systematic variation in high-dimensional data},
+  author={Chung, Neo Christopher and Storey, John D},
+  journal={Bioinformatics},
+  volume={31},
+  number={4},
+  pages={545--554},
+  year={2015},
+  publisher={Oxford Univ Press}
+}
+
+@article{shekhar2016comprehensive,
+  title={Comprehensive classification of retinal bipolar neurons by single-cell transcriptomics},
+  author={Shekhar, Karthik and Lapan, Sylvain W and Whitney, Irene E and Tran, Nicholas M and Macosko, Evan Z and Kowalczyk, Monika and Adiconis, Xian and Levin, Joshua Z and Nemesh, James and Goldman, Melissa and others},
+  journal={Cell},
+  volume={166},
+  number={5},
+  pages={1308--1323},
+  year={2016},
+  publisher={Elsevier}
+}
+
+@article{dobin2013star,
+  title={STAR: ultrafast universal RNA-seq aligner},
+  author={Dobin, Alexander and Davis, Carrie A and Schlesinger, Felix and Drenkow, Jorg and Zaleski, Chris and Jha, Sonali and Batut, Philippe and Chaisson, Mark and Gingeras, Thomas R},
+  journal={Bioinformatics},
+  volume={29},
+  number={1},
+  pages={15--21},
+  year={2013},
+  publisher={Oxford Univ Press}
+}
+
+@inproceedings{ester1996density,
+  title={A density-based algorithm for discovering clusters in large spatial databases with noise.},
+  author={Ester, Martin and Kriegel, Hans-Peter and Sander, J{\"o}rg and Xu, Xiaowei and others},
+  booktitle={Kdd},
+  volume={96},
+  number={34},
+  pages={226--231},
+  year={1996}
+}
+
+@article{pollen2014low,
+  title={Low-coverage single-cell mRNA sequencing reveals cellular heterogeneity and activated signaling pathways in developing cerebral cortex},
+  author={Pollen, Alex A and Nowakowski, Tomasz J and Shuga, Joe and Wang, Xiaohui and Leyrat, Anne A and Lui, Jan H and Li, Nianzhen and Szpankowski, Lukasz and Fowler, Brian and Chen, Peilin and others},
+  journal={Nature biotechnology},
+  volume={32},
+  number={10},
+  pages={1053--1058},
+  year={2014},
+  publisher={Nature Research}
+}
+
+\end{filecontents}
+
+\documentclass[11pt]{article}
+\usepackage{fullpage,
+			times,
+			namedplus,
+		   }
+
+\bibliographystyle{plain}
+
+\title{\bf Drop-Seq and 10x Analysis Pipeline Overview}
+\author{\bf Guilherme de Sena Brandine}
+\usepackage{amssymb}
+%\date{\today}
+
+\begin{document}
+
+\maketitle
+\section{Upstream Analysis}
+The upstream analysis is done differently whether the data comes from the traditional drop-seq protocol \cite{macosko2015highly} from 10X genomics \cite{zheng2016massively}. In the traditional protocol we use FastQC \cite{andrews2010fastqc} on the second end read to assess the Illumina read quality and overall sequence biases. If necessary we use Trim Galore \cite{krueger2015trim} to trim out possible adapter contamination. The second-end reads are then mapped to the NCBI \emph{Coturnix japonica} reference genome using the STAR\cite{dobin2013star} mapper to obtain a BAM file. The package developed by the McCarroll lab \cite{macosko2015highly} is used to tag, for every mapped read, the cell/molecule barcode from the first end read as metadata. The first 12 base pairs of read 1 are tagged as cell barcodes, and the last 8 base pairs are tagged as UMIs. Reads are subsequently merged if they have matching cell barcodes and if the UMIs have a Hamming distance of at most 1. Finally, BAM alignments are matched with the annotation from the appropriate reference genome to create a digital gene expression matrix that counts the number of reads mapped to each gene in each barcode. 
+\\
+\\
+The CellRanger software from 10X proceeds in a similar fashin as described above, but their barcode standards are different. They have adapters between cell and molecular barcodes that overcome potential ambiguities in barcode sequencing errors and have a list of valid barcodes as reference. Each sequenced cell barcode is associated with a whitelist barcode based on sequence similarity. 
+
+\section{Downstream Analysis}
+
+Downstream analysis is done using the implementation available in the Seurat\cite{satija2015spatial} package unless the subsection is marked with an asterisk (*) . Below is a brief explanation of the mathematical assumptions and models at each step of the analysis:
+
+\subsection{Count Table Quality Control}
+\subsubsection{Good-Turing Estimate*}
+When reads from a particular cell are mapped to a reference genome, a natural question that arises is: What proportion of the total RNA in the library is sequenced? \\
+\\
+Each successfully mapped and annotated read can be thought of as sampling a random fragment of RNA from a population with an unknown number of different genes and an unknown number of fragments per gene. Good \& Turing \cite{good1953population} have shown that, as long as the each fragment has nonzero probability of being sequenced, the asymptotic expected value of the number of fragments $S_i$ not sequenced in cell $i$ is given by:
+$$
+\mathbb{E}[S_i] = n_{i1} / N_i
+$$
+
+Where $n_{i1}$ is the number of genes in cell $i$ with only one read mapped to it and $N_i$ is the total number of reads in cell $i$. The most interesting thing is that this result doesn't require any assumption on the distribution of our sampling! Only that every read has a nonzero probability of being sequenced. We'll call the formula above the \textbf{estimated coverage}. This approximation is better the larger the value of $n_1$ is. \\
+\\
+When the number of cells in the dataset is large, we do a density plot of the estimated coverage of all cells. Those whose value approaches 1 indicate a very low coverage. Pollen \cite{pollen2014low} has shown that, even when the coverage of all cells is very low, we are still capable of identifying subpopulations accurately, so for the purposes of clustering, this criteria is not used to exclude cells.
+
+\subsubsection{Reads from Mitochondrial Genes}
+Another common QC metrics is the proportion of reads mapped to mitochondrial genes. In higher eukaryotes, if the space of sequenced genes is comprehensive, mitochondrial reads should appear in very low proportion. As a general rule, we exclude cells that have more than 5\% of the reads mapped to mitochondrial genes - that is, those with the \emph{MT} prefix in the ensembl annotation -.
+
+\subsubsection{CellRanger Background Barcode Analysis*}
+When the data comes from 10X genomics, the CellRanger pipeline also has a QC metric based on background barcodes. 
+
+\subsection{Normalization}
+Several studies have shown a monotonic relationship between the variance of a particular gene across technical replicates of the same biological RNA-Seq experiment and its average value, both in bulk \cite{} and single cell RNA-Seq\cite{}. This is problematic since we expect the observed variance across cells to be exclusively due to phenotype heterogeneity. For this reason, we apply a variance stabilizing transformation that turns the mean and variance independent. Specifically, for a random variable $X$ such that $Var[X] \sim E[X]^2$, the random variable $Y = \log(1+X)$ has approximately constant variance regardless of its mean. We thus do a log transform on the dataset before proceding with further analysis.
+
+\subsection{Variable Gene Selection}
+After normalization, we analyze the subsequent mean-variance relationship across all genes. We calculate the mean and variance of all genes and group them into bins of similar variance. We then calculate the z-score of each gene (eg, how many standard deviations away from its bin the gene is) and keep genes with high absolute z-score. 
+
+\subsection{PCA and Choice of Principal Components}
+\subsubsection{Overview of the PCA Algorithm}
+With a (hopefully) smaller list of genes with high variance, we usually will have genes that have similar expression patterns across cells, most likely due to them being co-expressed or biologically dependent. Principal Component Analysis is a dimension reduction method that creates new features (called principal components) as linear combinations of genes such that the variances of these components are maximized. More formally, suppose we have $N$ variable genes and their expression values on cell $i$ are $g_{i1}, g_{i2}, \dots, g_{iN}$. We create $K$ principal components (and hopefully $K$ is much smaller than $N$) such that the $j$-th principal component value for cell $i$ is given by:
+$$
+PC_{ij} = \alpha_{j1} g_{i1} + \dots + \alpha_{jn} g_{iN}
+$$
+\\
+The PCA algorithm chooses the values of the $\alpha$'s under the constraint that, for all $j$, $\alpha_{j1}^2 + \dots + \alpha_{jN}^2 = 1$ (ie, the rotation has unit length) and if $j \neq l$ then $\alpha_{j1}\alpha_{l1} + \dots \alpha_{jN}\alpha_{lN} = 0$ (ie, the principal components are orthogonal to each other). \\
+\\
+An informative subproduct of PCA is the set of genes that contribute the most to each PC, that is, for a specific PC $j$, the genes that have the largest absolute values of $\alpha_j$ in the above formula. To visualize such genes, we build heatmaps for each PC $j$. We choose the cells with highest values of $PC_j$ and the genes with highest $\alpha_j$ and plot them on a heatmap. we usually see a bimodal distribution of genes with both positive and negative correlation (fig ...), and we may further interrogate if these genes have similar biological functions by testing for enrichment (see \emph{Ontology Enrichment Analysis})
+
+\subsubsection{Choosing the number of PCs to retain}
+Dimensionality reduction usually comes with the cost of information loss. If we wanted to retain as much variance between cells as in our original dataset, we would have to have as many PCs as we have genes, which wouldn't be very useful. Many PCs, however, have a very small variance and contribute to, at most, noise. Storey \cite{chung2015statistical} has proposed a statistical method to measure the significance of a principal component by analyzing how the coefficients $\alpha_{jg}$ of each gene $g$ in PC $j$ changes when we shuffle the expression value of all cells. We use this statistic to retain pcs such that most genes still have a large $\alpha$ when permutated. 
+
+\subsection{Clustering and Subpopulation Discovery}
+\subsubsection{The K Nearest Neighbors Graph}
+The goal of the aforementioned steps is to summarize the large volume of data into a much smaller number of principal components. We use the principal components to further group the cells into subpopulatins with similar expression. We usually don't know a priori how many subpopulations exist, whence we'd like to use an unsupervised approach which would also give us that information. Shekhar\cite{shekhar2016comprehensive} has analyzed the robustness and correctness of several different clustering methods on datasets with a large number of cells with shallow coverage and has shown that the Louvain-Jaccard method yields best results. \\
+\\
+The idea of this method is to join every cell to its $k$ nearest neighbors as measured by Euclidean distance. If we retain $m$ PCs, the Euclidean distance between cell $i$ and cell $j$ is given by:
+$$
+d_{ij} = \sqrt{(PC_{i1} - PC_{j1})^2 + \dots + (PC_{im} - PC_{jm})^2}
+$$
+
+We build a network of cells in which every cell is connected by the $k$ cells with smallest distance. A subsequent step is to assign an edge weight between any two connected cells given by their jaccard index, given by:
+$$
+A_{ij} = \frac{|S_i \cap S_j|}{|S_i \cup S_j|} = \frac{|S_i \cap S_j|}{2k - |S_i \cap S_j |}
+$$
+Which is to say the edge weight is the ratio between the number of common nearest neighbors between the two cells and the total number of edges of the two (which is at most $2k$). 
+\subsubsection{The Louvain Modularity}
+The goal on building such graph is to group the nodes into smaller subgroups (henceforth caled \emph{clusters}) such that there are many edges inside the clusters and few edges between cells of different clusters. Of course, if we stated the problem like this, a trivial solution would be to have just one group comprising all the cells, which is undesired. Louvain has proposed a different measure that better fits the problem: Can we divide the cells into clusters such that the sum of the edges inside a cluster is bigger than the sum of the average edge weight of all cells in the cluster? \\
+\\
+From this definition we turn clustering into an optimization problem. The formula to maximize is given by:
+$$
+Q = \frac{1}{2m}\sum_{ij} \left[ A_{ij} - \frac{w_i w_j}{2m} \right]\delta(c_i, c_j)
+$$
+\\
+Where $m$ is the total number of edges, $c_i$ (resp, $c_j$) is the cluster number to which cell $i$ (resp $j$) belongs, $A_{ij}$ is the value of the edge between cells $i$ and $j$ as calculated above, $w_i$ (resp, $w_j$) is the sum of all edges connected to cell $i$(resp, $j$) and $\delta(c_i, c_j)$ is a function equal to $1$ if $c_i = c_j$ (ie, cells $i$ and $j$  belong to the same cluster) or $0$ otherwise. The goal here is to assign values to all $c_i$ of all cells $i$ to maximize $Q$. For instance, if all $c_i$ are equal (that is, all cells belong to the same cluster), then $Q=0$. The same happens if all $c_i$ are distinct (ie, every cell forms a singleton cluster). It is entirely possible that these extreme cases are our optimal solution, but in most single cell analyses, cells naturally have subgroups of phenotypes with matching principal components that can be discovered upon optimizing $Q$. \\
+\\
+One thing to note is that the parameter $k$ - the number of nearest neighbors we used to build the graph - can change the final solution. \\
+\\
+The biological identity of these clusters can further be validated by analyzing specific marker genes known a priori to influence the identity of the cells.
+
+\subsection{Differential Expression of Clusters}
+In the Louvain Modularity clustering, we did not take into account the influence of particular genes or PCs in the identity of the clusters. Instead, each PC weighs equally when calculating the Euclidean distance. Given the identity of the clusters, we may instead be interested in which genes are upregulated in each individual cluster when compared to the cluster outside. For this we use a likelihood ratio test that is suited for zero-inflated samples such as those of single cell RNA-Seq as proposed by McDavid  \cite{mcdavid2013data}. If we fix a gene $j$ in cluster $i$, we model the raw reads of gene $g$ as a zero-inflated log-normal distribution. This distribution has 3 parameters: The probability $\pi_{ij}$ of drop-out, and the mean and variance $\mu_{ij}$  and $\sigma_{ij}^{2}$ . Similarly, let's define the same values but estimated from all the clusters except $i$, that is: $\pi_{\tilde{i}j}$ is the drop-out probability outside of cluster $i$, and similarly $\mu_{\tilde{i}j}$ and $\sigma_{\tilde{i}j}^2$. The hypothesis tests at hand here are thus the following:
+
+$$
+\mbox{Alternative Hypothesis: } H_a: \pi_{ij} \neq \pi_{\tilde{i}j} \mbox{ and } \mu_{ij} \neq \mu_{\tilde{i}j}
+$$
+
+$$
+\mbox{Null Hypothesis: } H_o: \pi_{ij} = \pi_{\tilde{i}j} \mbox{ and } \mu_{ij} = \mu_{\tilde{i}j}
+$$
+\\
+A likelihood ratio test based on this model gives us a p-value for every gene and every clusters. If there are $c$ such clusters and $g$ such genes, we are making $c \times g$ hypothesis tests. Let us remind of the meaning of the p-value we calculate above: $p$ is the probability of rejecting the null hypothesis (that the genes actually have the same mean expression both inside and outside of the cluster) when the null hypothesis is actually true. If $p = .01$, for example, we have a 1\% of detecting a false positive by chance. This makes the choice of a statistically significant $p$ rather difficult. If, for example, we have $c = 10$ clusters and $g = 2,000$ variable genes, we're doing $c \times g = 20,000$ tests. Of course sometimes we will reject the null hypothesis just by random chance with so many tests! \\
+\\
+A possible solution for this problem is to use the \emph{Bonferroni Correction}, and make our $p$ cutoff more restrictive. For example: If we would reject a single hypothesis test if $p < 1\%$ but we're doing instead $20,000$ tests, the idea is to make our $p$ value cutoff smaller by dividing it by the number of tests we do. So we would only consider a gene statistically significant between two clusters if $p < .01 / 20,000 = 5 \times 10^{-7}$. \\
+\\
+There are pros and cons on this approach. The biggest drawback is that it may be sometimes too restrictive, that is, we would be throwing off genes that may be statistically significant and characterize a cluster. Practical experience with the data, however, shows that there are always thousands of genes in each cluster with $p < 5 \times 10^{-7}$, and most of the times we're not worried about a particular gene, but rather sets of genes that may give us insights on the biology regulating the cluster identity. A restrictive cutoff would hence not critically compromise the identity of this set of genes.
+
+\subsection{Network Construction*}
+
+At this point every individual cluster has a set of genes that are upregulated with good significance. A subsequent question of interest is: Which sets of these genes are highly correlated or anti/correlated to each other? This may seem like a very similar question we answered using PCA, but there's two fundamental differences: First, we're now analyzing individual clusters rather than the entire dataset, and this can certainly cause correlations that existed before not to exist anymore. Second, we do not weigh in on the importance of the variance of individual genes. For instance, if two genes have constant expression across the entire dataset, these would be certainly thrown away in the first steps of the pipeline since they don't yield any important information about the heterogeneity in the data. However, if two genes that have constant expression inside a cluster whilst passing the differential expression test, we would be inclined to believe that they have similar biological function and may belong to the same gene network.\\
+\\
+This is the foundation of the theory of network construction proposed by Horvath \cite{}. The WGCNA method builds yet another graph, but this time between genes. Each pair of genes $i$ and $j$ is joined by an edge given by their correlation coefficient:
+$$
+\rho_{ij} = \frac{\sum_{k} (g_{ki} - \bar{g_{k\cdot}})(g_{kj} - \bar{g_{k\cdot}})}{\sqrt{(g_{ki} - \bar{g_{k\cdot}})^2}\sqrt{(g_{kj} - \bar{g_{k\cdot}})^2}}
+$$
+
+
+\subsection{Ontology Enrichment Analysis*}
+
+\subsection{Pseudotime Analysis*}
+\newpage
+\bibliography{mybibtest}
+
+
+\end{document}
