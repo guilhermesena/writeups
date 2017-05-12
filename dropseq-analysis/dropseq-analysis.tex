@@ -63,6 +63,28 @@
   publisher={JSTOR}
 }
 
+@article{anders2010differential,
+  title={Differential expression analysis for sequence count data},
+  author={Anders, Simon and Huber, Wolfgang},
+  journal={Genome biology},
+  volume={11},
+  number={10},
+  pages={R106},
+  year={2010},
+  publisher={BioMed Central}
+}
+
+@article{kharchenko2014bayesian,
+  title={Bayesian approach to single-cell differential expression analysis},
+  author={Kharchenko, Peter V and Silberstein, Lev and Scadden, David T},
+  journal={Nature methods},
+  volume={11},
+  number={7},
+  pages={740--742},
+  year={2014},
+  publisher={Nature Research}
+}
+
 @article{maaten2008visualizing,
   title={Visualizing data using t-SNE},
   author={Maaten, Laurens van der and Hinton, Geoffrey},
@@ -104,6 +126,17 @@
   publisher={Oxford Univ Press}
 }
 
+@article{trapnell2014dynamics,
+  title={The dynamics and regulators of cell fate decisions are revealed by pseudotemporal ordering of single cells},
+  author={Trapnell, Cole and Cacchiarelli, Davide and Grimsby, Jonna and Pokharel, Prapti and Li, Shuqiang and Morse, Michael and Lennon, Niall J and Livak, Kenneth J and Mikkelsen, Tarjei S and Rinn, John L},
+  journal={Nature biotechnology},
+  volume={32},
+  number={4},
+  pages={381--386},
+  year={2014},
+  publisher={Nature Research}
+}
+
 @article{shekhar2016comprehensive,
   title={Comprehensive classification of retinal bipolar neurons by single-cell transcriptomics},
   author={Shekhar, Karthik and Lapan, Sylvain W and Whitney, Irene E and Tran, Nicholas M and Macosko, Evan Z and Kowalczyk, Monika and Adiconis, Xian and Levin, Joshua Z and Nemesh, James and Goldman, Melissa and others},
@@ -124,6 +157,17 @@
   pages={15--21},
   year={2013},
   publisher={Oxford Univ Press}
+}
+
+@article{langfelder2008wgcna,
+  title={WGCNA: an R package for weighted correlation network analysis},
+  author={Langfelder, Peter and Horvath, Steve},
+  journal={BMC bioinformatics},
+  volume={9},
+  number={1},
+  pages={559},
+  year={2008},
+  publisher={BioMed Central}
 }
 
 @inproceedings{ester1996density,
@@ -150,16 +194,18 @@
 \end{filecontents}
 
 \documentclass[11pt]{article}
-\usepackage{fullpage,
-			times,
-			namedplus,
-		   }
 
 \bibliographystyle{plain}
 
 \title{\bf Single Cell RNA-Seq Analysis Pipeline Overview}
 \author{\bf Guilherme de Sena Brandine}
-\usepackage{amssymb, graphicx, caption,hyperref}
+\usepackage{fullpage,
+			times,
+			amssymb, 
+			graphicx, 
+			caption,
+			hyperref}
+\usepackage[utf8]{inputenc}
 \date{\today}
 
 \newcommand{\prettyfig} [3]{
@@ -175,6 +221,14 @@
 \begin{document}
 
 \maketitle
+\tableofcontents
+\newpage
+
+\section{Introduction}
+This document is an overview of all the steps used in the Smith Lab to analyze and mine information from Single Cell RNA-Seq datasets, both upstream and downstream. We assume we have a set of Fastq files with raw RNA reads that we wish to proceed on quality measurements and, assuming good read quality, the downstream analysis that best suits the questions of interest. We hope to give an overview of the assumptions, current models, algorithms and examples of result we obtain with our pipeline, as well as guidelines on how to interpret the figures and tables we generate and the reasons for generating images and data the way we do. \\
+\\
+Since we cannot go into full detail of all the algorithms and proofs of all methods we apply, we hope with this document to give an intuition of the questions and problem formulations and each step, and we leave the paper references with more detailed explanation for the more curious readers. 
+
 \section{Upstream Analysis}
 The upstream analysis is done differently whether the data comes from the traditional drop-seq protocol \cite{macosko2015highly} from 10X genomics \cite{zheng2016massively}. In the traditional protocol we use FastQC \cite{andrews2010fastqc} on the second end read to assess the Illumina read quality and overall sequence biases. If necessary we use Trim Galore \cite{krueger2015trim} to trim out possible adapter contamination. The second-end reads are then mapped to the NCBI \emph{Coturnix japonica} reference genome using the STAR\cite{dobin2013star} mapper to obtain a BAM file. The package developed by the McCarroll lab \cite{macosko2015highly} is used to tag, for every mapped read, the cell/molecule barcode from the first end read as metadata. The first 12 base pairs of read 1 are tagged as cell barcodes, and the last 8 base pairs are tagged as UMIs. Reads are subsequently merged if they have matching cell barcodes and if the UMIs have a Hamming distance of at most 1. Finally, BAM alignments are matched with the annotation from the appropriate reference genome to create a digital gene expression matrix that counts the number of reads mapped to each gene in each barcode. 
 \\
@@ -213,7 +267,7 @@ The 10X CellRanger pipeline is also capable of yielding information on the satur
 
 \newpage
 \subsection{Normalization}
-Several studies have shown a monotonic relationship between the variance of a particular gene across technical replicates of the same biological RNA-Seq experiment and its average value, both in bulk \cite{} and single cell RNA-Seq\cite{}. This is problematic since we expect the observed variance across cells to be exclusively due to phenotype heterogeneity. For this reason, we apply a variance stabilizing transformation that turns the mean and variance independent. Specifically, for a random variable $X$ such that $Var[X] \sim E[X]^2$, the random variable $Y = \log(1+X)$ has approximately constant variance regardless of its mean. We thus do a log transform on the dataset before proceding with further analysis.
+Several studies have shown a monotonic relationship between the variance of a particular gene across technical replicates of the same biological RNA-Seq experiment and its average value, both in bulk \cite{anders2010differential} and single cell RNA-Seq\cite{kharchenko2014bayesian}. This is problematic since we expect the observed variance across cells to be exclusively due to phenotype heterogeneity. For this reason, we apply a variance stabilizing transformation that turns the mean and variance independent. Specifically, for a random variable $X$ such that $Var[X] \sim E[X]^2$, the random variable $Y = \log(1+X)$ has approximately constant variance regardless of its mean. We thus do a log transform on the dataset before proceding with further analysis.
 
 \subsection{Variable Gene Selection}
 After normalization, we analyze the subsequent mean-variance relationship across all genes. We calculate the mean and variance of all genes and group them into bins of similar variance. We then calculate the z-score of each gene (ie, how many standard deviations away from its bin the gene is) and keep genes with high absolute z-score. 
@@ -300,7 +354,7 @@ There are pros and cons to this approach. The biggest drawback is that it may be
 
 At this point every individual cluster has a set of genes that are upregulated with good significance. A subsequent question of interest is: Which sets of these genes are highly correlated or anti/correlated to each other? This may seem like a very similar question we answered using PCA, but there's two fundamental differences: First, we're now analyzing individual clusters rather than the entire dataset, and this can certainly cause correlations that existed before not to exist anymore. Second, we do not weigh in on the importance of the variance of individual genes. For instance, if two genes have constant expression across the entire dataset, these would be certainly thrown away in the first steps of the pipeline since they don't yield any important information about the heterogeneity in the data. However, if two genes that have constant expression inside a cluster whilst passing the differential expression test, we would be inclined to believe that they have similar biological function and may belong to the same gene network.\\
 \\
-This is the foundation of the theory of network construction proposed by Horvath \cite{}. The WGCNA method builds yet another graph, but this time between genes. Each pair of genes $i$ and $j$ is joined by an edge whose weight is given by their correlation coefficient:
+This is the foundation of the theory of network construction proposed by Horvath \cite{langfelder2008wgcna}. The WGCNA method builds yet another graph, but this time between genes. Each pair of genes $i$ and $j$ is joined by an edge whose weight is given by their correlation coefficient:
 $$
 \rho_{ij} = \frac{\sum_{k} (g_{ki} - \bar{g_{\cdot i}})(g_{kj} - \bar{g_{\cdot j}})}	{\sqrt{(g_{ki} - \bar{g_{\cdot i}})^2}\sqrt{(g_{kj} - \bar{g_{\cdot j}})^2}}
 $$
@@ -315,7 +369,7 @@ How do we choose $\alpha$ and $\tau$? This is outside of the scope of the analys
 \newpage
 \subsection{Ontology Enrichment Analysis*}
 
-In many cases it is possible to make safe assumptions about the biological properties of cells solely based on the behavior of marker genes and the networks. An extra validation of those properties can be given by comparing the gene lists to an ontology database. We use the topGO package \cite{} that uses the PANTHER database (www.geneontology.org) to test for ontology enrichment. \\
+In many cases it is possible to make safe assumptions about the biological properties of cells solely based on the behavior of marker genes and the networks. An extra validation of those properties can be given by comparing the gene lists to an ontology database. We use the topGO package \cite{alexa2010topgo} that uses the PANTHER database (www.geneontology.org) to test for ontology enrichment. \\
 \\
 The Gene Ontology is structured as a directed acyclic graph where the 3 root nodes have very general terms (biological process, cell cycle and molecular function) and each node goes from a more generic to a more specific term. Each term has a set of genes associated with that biological function. \\
 \\
@@ -323,13 +377,14 @@ When we have a list of genes (eg, from a differential expression table or from P
 
 \newpage
 \subsection{Pseudotime Analysis*}
-In the context of cells continuously differentiating from one phenotype into another, it is often desired to be able to reconstruct the differentiation pathway they have undergone. We assume our sample consists of cells randomly sampled from the early to late differentiation pathway, and we use the distances between their transcription profiles to be able to rebuild their transition path. The most common approach for this is the Monocle \cite{} algorithm. \\
+In the context of cells continuously differentiating from one phenotype into another, it is often desired to be able to reconstruct the differentiation pathway they have undergone. We assume our sample consists of cells randomly sampled from the early to late differentiation pathway, and we use the distances between their transcription profiles to be able to rebuild their transition path. The most common approach for this is the Monocle \cite{trapnell2014dynamics} algorithm. \\
 \\
 Once again in Monocle we build a graph where we connect all pairs of cells by their euclidean distance as definied in Section 2.5.1. The assumption here is that two cells that are adjacent in the differentiation path will have a small distance (ie, a small difference of their expression profiles). Monocle attempts to find an ordering of the cells such that the sum of all the edges between adjacent cells is as small as possible. This is known in the computer science literature as the \emph{traveling salesman problem}. Though the construction of this pathway and subsequent decisions on if and where we should branch the path are rather loaded technically, it suffices to say that Monocle finds a good approximation of the most likely pathway the cells underwent.\\
 \\
 It is important to notice that it is crucial that the dataset we use to reconstruct the pseudotime actually makes sense. If we, for instance, apply the method to a set of many unrelated cell types, Monocle will actually "force" them into a reconstruction pathway, which certainly might be undesired. 
- 
+\prettyfig{monocle}{.65}{An example of pseudotime reconstruction of nephron progenitor cells. Cells are colored by clusters inferred by Louvain-Jaccard modularity and further ordered using Monocle to compare the correlation between trajectory and cluster identity.}
 \newpage
+\bibliographystyle{plain}
 \bibliography{mybibtest}
 
 
